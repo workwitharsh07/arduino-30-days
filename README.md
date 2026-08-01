@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.png" alt="Arduino 30 Days Banner">
+</p>
+
 # Arduino 30 Days
 
 A complete beginner-friendly Arduino UNO course designed to help you learn embedded systems, electronics, and robotics through hands-on projects.
