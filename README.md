@@ -12,6 +12,37 @@
 
 # Arduino 30 Days
 
+## 📑 Table of Contents
+
+- [Course Information](#course-information)
+- [Overview](#overview)
+- [Features](#features)
+- [What You'll Learn](#what-youll-learn)
+- [Course Roadmap](#course-roadmap)
+- [Hardware Required](#hardware-required)
+- [Software Required](#software-required)
+- [Getting Started](#getting-started)
+- [Repository Structure](#repository-structure)
+- [License](#license)
+- [About LifeTronix](#about-lifetronix)
+
+---
+
+## 📌 Course Information
+
+| Property | Details |
+|----------|---------|
+| 📚 Lessons | 30 Practical Lessons |
+| ⏱ Duration | 30 Days |
+| 🎯 Skill Level | Beginner |
+| 💻 Platform | Arduino UNO |
+| 💾 Programming Language | Arduino (C/C++) |
+| 🔓 License | MIT |
+| 🌍 Course Type | Open Source |
+| 👨‍🏫 Maintained By | LifeTronix |
+
+---
+
 ### Learn Arduino Through 30 Practical Lessons
 
 ---
@@ -57,6 +88,16 @@ By completing this course, you will learn how to:
 - Control LEDs, buzzers, motors, and displays
 - Develop complete Arduino-based projects
 - Build confidence in embedded systems development
+
+---
+
+## 📈 Course Progress
+
+```text
+████████░░░░░░░░░░░░░░░░░░░░ 2 / 30 Lessons Completed (7%)
+```
+
+> Progress will be updated as new lessons are released.
 
 ---
 
