@@ -43,6 +43,19 @@
 
 ---
 
+## ⭐ Repository Highlights
+
+- ✅ 30 structured hands-on lessons
+- ✅ Beginner-friendly learning path
+- ✅ Real Arduino projects
+- ✅ Complete source code
+- ✅ Circuit diagrams
+- ✅ Bill of Materials (BOM)
+- ✅ Open-source documentation
+- ✅ Designed for students, makers, and robotics enthusiasts
+
+---
+
 ### Learn Arduino Through 30 Practical Lessons
 
 ---
