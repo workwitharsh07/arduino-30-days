@@ -50,7 +50,7 @@ Build your first Arduino project by making an LED blink every second. This begin
 ### Circuit Diagram
 
 <p align="center">
-  <img src="circuit.png" width="600">
+  <img src="circuit.webp" width="600">
 </p>
 
 ---
