@@ -1,29 +1,29 @@
-# 💡 Day 09 – Distance Meter HC-SR04
+# 💡 Day 10 – Smart Parking Sensor
 
-Build a distance measurement system using an ultrasonic sensor that displays real-time distance readings.
+Build an intelligent parking system that uses distance measurement to provide color-coded alerts and warnings.
 
-**⏱️ Time:** 25-30 mins | **📊 Level:** ⭐⭐ Intermediate
+**⏱️ Time:** 30-35 mins | **📊 Level:** ⭐⭐⭐ Advanced
 
 ---
 
 ## ✨ Features
 
-- 📏 Measure distance up to 4 meters
-- 📡 Use ultrasonic sound waves for detection
-- 🎯 Real-time distance readings
-- 🔄 Instant response to object movement
-- 📊 Display results on Serial Monitor
+- 🟢 Multi-level distance detection system
+- 🚗 Real-world parking assistance simulation
+- 💡 Color-coded LED alerts (Green/Yellow/Red)
+- 🔊 Audio alarm when too close
+- ⚡ Automatic response to changing distances
 
 ---
 
 ## 🎯 What You'll Learn
 
-- How ultrasonic sensors measure distance
-- Understanding sound wave reflection
-- The `pulseIn()` function for timing measurement
-- Distance calculation from echo time
-- Sensor calibration techniques
-- Real-time data display and monitoring
+- Integrating multiple sensors and outputs
+- Creating alert levels based on sensor data
+- How real parking systems work
+- Conditional logic for multi-stage automation
+- Combining visual and audio feedback
+- Real-world safety application design
 
 ---
 
@@ -34,88 +34,116 @@ Build a distance measurement system using an ultrasonic sensor that displays rea
 | Arduino UNO | 1 |
 | Breadboard | 1 |
 | HC-SR04 Ultrasonic Sensor | 1 |
-| Jumper Wires | 4 |
+| Green LED | 1 |
+| Yellow LED | 1 |
+| Red LED | 1 |
+| 220Ω Resistor | 3 |
+| Passive Buzzer | 1 |
+| Jumper Wires | 8 |
 | USB Type-B Cable | 1 |
 
 ---
 
 ## 🔌 Circuit Connections
 
-| Arduino Pin | Sensor Pin |
+| Arduino Pin | Component |
 |-------------|-----------|
-| 5V | VCC (Power) |
-| GND | GND (Ground) |
-| Pin 9 | TRIG (Trigger) |
-| Pin 10 | ECHO (Echo) |
+| 5V | HC-SR04 VCC |
+| GND | HC-SR04 GND, All LED Cathodes, Buzzer (−) |
+| Pin 9 | HC-SR04 TRIG |
+| Pin 10 | HC-SR04 ECHO |
+| Pin 3 | Green LED Anode (through 220Ω) |
+| Pin 4 | Yellow LED Anode (through 220Ω) |
+| Pin 5 | Red LED Anode (through 220Ω) |
+| Pin 8 | Buzzer (+) positive terminal |
 
-**⚠️ Important:** The HC-SR04 has 4 pins: VCC, GND, TRIG, and ECHO. Verify all connections before uploading code.
+**⚠️ Important:** All sensor pins must be correct. Double-check HC-SR04 and LED connections before uploading.
 
 ---
 
 ## 💻 How It Works
 
-### Configure Sensor Pins
-Pin 9 is OUTPUT for sending trigger signal. Pin 10 is INPUT to receive echo signal.
+### Configure All Pins
+Setup: Pin 9 (OUTPUT), Pin 10 (INPUT), Pins 3/4/5 (OUTPUT LEDs), Pin 8 (OUTPUT buzzer).
 
-### Send Trigger Pulse
-A 10-microsecond pulse is sent to TRIG pin to activate the ultrasonic sensor.
+### Measure Distance Continuously
+HC-SR04 sensor continuously measures distance using ultrasonic sound waves.
 
-### Measure Echo Duration
-The `pulseIn()` function measures how long ECHO pin stays HIGH after trigger signal.
+### Evaluate Distance Ranges
+Compare distance against three thresholds: Safe (>50cm), Warning (30-50cm), Danger (<30cm).
 
-### Calculate Distance
-Distance = (Echo Duration × Speed of Sound) ÷ 2. The divisor is 2 because sound travels to object and back.
+### Control Alert Outputs
+Safe: Green ON. Warning: Green OFF, Yellow ON. Danger: Yellow OFF, Red flashing, Buzzer ON.
 
-### Display Results
-Distance is printed to Serial Monitor every 500ms for continuous real-time readings.
+### Update System Continuously
+Loop repeats every 200ms to provide real-time feedback to the driver.
 
 ---
 
 ## 🚀 Getting Started
 
-1. Connect HC-SR04 sensor to breadboard
-2. Wire VCC to 5V, GND to GND
-3. Wire TRIG to Pin 9, ECHO to Pin 10
-4. Connect Arduino to computer
-5. Open Arduino IDE
-6. Load the Distance Meter sketch
-7. Open Serial Monitor at 9600 baud
-8. Place objects in front of sensor to measure distance
+1. Assemble all components on breadboard
+2. Connect HC-SR04 sensor correctly
+3. Connect three LEDs to Pins 3, 4, 5
+4. Connect buzzer to Pin 8
+5. Connect Arduino to computer
+6. Load the Smart Parking sketch
+7. Select **Tools → Board → Arduino UNO**
+8. Upload code
+9. Test by moving obstacle toward sensor
 
 ---
 
-## 💾 Source Code (DistanceMeter.ino)
+## 💾 Source Code (SmartParkingSensor.ino)
 
 ```cpp
-int trigPin = 9;    // Trigger pin
-int echoPin = 10;   // Echo pin
+int trigPin = 9, echoPin = 10;
+int greenLED = 3, yellowLED = 4, redLED = 5;
+int buzzer = 8;
 
 void setup() {
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
-  Serial.begin(9600);
+  pinMode(greenLED, OUTPUT);
+  pinMode(yellowLED, OUTPUT);
+  pinMode(redLED, OUTPUT);
+  pinMode(buzzer, OUTPUT);
 }
 
 void loop() {
-  // Send trigger pulse
+  // Measure distance
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
   
-  // Measure echo duration
   long duration = pulseIn(echoPin, HIGH);
-  
-  // Calculate distance (speed of sound = 343 m/s)
   int distance = duration * 0.0343 / 2;
   
-  // Display results
-  Serial.print("Distance: ");
-  Serial.print(distance);
-  Serial.println(" cm");
+  // Safe range (>50 cm)
+  if (distance > 50) {
+    digitalWrite(greenLED, HIGH);
+    digitalWrite(yellowLED, LOW);
+    digitalWrite(redLED, LOW);
+    noTone(buzzer);
+  }
+  // Warning range (30-50 cm)
+  else if (distance > 30) {
+    digitalWrite(greenLED, LOW);
+    digitalWrite(yellowLED, HIGH);
+    digitalWrite(redLED, LOW);
+    noTone(buzzer);
+  }
+  // Danger range (<30 cm)
+  else {
+    digitalWrite(greenLED, LOW);
+    digitalWrite(yellowLED, LOW);
+    digitalWrite(redLED, HIGH);
+    tone(buzzer, 1000);  // Sound alarm
+  }
   
-  delay(500);
+  delay(200);
 }
 ```
 
@@ -123,10 +151,10 @@ void loop() {
 
 ## 📸 Expected Output
 
-- 📊 Serial Monitor displays distance in centimeters
-- 🎯 No object detected = large distance value
-- 👋 Move hand in front = real-time distance updates
-- 🔄 Readings update every 500ms
+- 🟢 Distance > 50cm: Green LED on (Safe)
+- 🟡 Distance 30-50cm: Yellow LED on (Warning)
+- 🔴 Distance < 30cm: Red LED flashing + Buzzer alarm (Danger)
+- 🔄 Real-time updates as obstacle distance changes
 
 ---
 
@@ -135,24 +163,27 @@ void loop() {
 Try these modifications:
 
 ```cpp
-// Display in both cm and inches
-int inches = distance / 2.54;
-Serial.println(inches);
+// Adjust alert thresholds
+if (distance > 100) {  // Very safe
+if (distance > 50) {   // Safe
+if (distance > 20) {   // Warning
+// Danger below 20cm
 
-// Add distance ranges
+// Add different alarm tones
+if (distance < 20) {
+  tone(buzzer, 1500);  // Higher frequency
+}
 if (distance < 10) {
-  Serial.println("Very Close!");
-} else if (distance < 50) {
-  Serial.println("Close");
-} else {
-  Serial.println("Far");
+  tone(buzzer, 2000);  // Even higher for extreme danger
 }
 
-// Use trigger on different pin
-int trigPin = 8;  // Different pin
-
-// Increase measurement frequency
-delay(200);  // Check every 200ms instead of 500ms
+// Add LED blinking in danger zone
+if (distance < 30) {
+  digitalWrite(redLED, HIGH);
+  delay(100);
+  digitalWrite(redLED, LOW);
+  delay(100);
+}
 ```
 
 ---
@@ -161,10 +192,10 @@ delay(200);  // Check every 200ms instead of 500ms
 
 | Problem | Solution |
 |---------|----------|
-| No distance readings | Check all 4 sensor pins, verify Serial Monitor open |
-| Shows zero or max value | Verify TRIG on Pin 9 and ECHO on Pin 10 |
+| LEDs don't change | Verify LED pins and polarity, check distance thresholds |
+| Buzzer silent | Check Pin 8 connection and buzzer polarity |
 | Unstable readings | Move sensor away from reflective surfaces |
-| Sensor not responding | Check 5V power and GND connection |
+| One LED always on | Check conditional logic and sensor connections |
 
 ---
 
@@ -172,19 +203,19 @@ delay(200);  // Check every 200ms instead of 500ms
 
 | Term | Meaning |
 |------|---------|
-| Ultrasonic | Sound waves above human hearing (40 kHz) |
-| Trigger | Signal that tells sensor to send sound |
-| Echo | Sound wave reflecting back to sensor |
-| pulseIn() | Measures how long a signal stays HIGH |
-| Duration | Time echo takes to return (microseconds) |
+| Multi-Level Alert | Different responses for different conditions |
+| Alert System | Visual and audio warnings combined |
+| Threshold | Reference value for decision making |
+| Real-Time Feedback | Instant response to changing conditions |
+| Sensor Integration | Combining multiple components in one system |
 
 ---
 
 ## 📚 Next Project
 
-**Day 10 – Smart Parking Sensor**
+**Day 11 – Temperature Monitor DHT11**
 
-Combine HC-SR04 with LEDs and buzzer for a parking assistance system!
+Read temperature and humidity with the DHT11 sensor!
 
 ---
 
