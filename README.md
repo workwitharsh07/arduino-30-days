@@ -104,32 +104,40 @@ By completing this course, you will learn how to:
 
 ---
 
-## 📈 Course Progress
-
-```text
-████████░░░░░░░░░░░░░░░░░░░░ 2 / 30 Lessons Completed (7%)
-```
-
-> Progress will be updated as new lessons are released.
-
----
-
 ## Course Roadmap
 
 | Day | Lesson | Status |
-|------|--------|--------|
-| Day 01 | [Blink LED](course/Day-01-Blink-LED/README.md) | ✅ Complete |
-| Day 02 | [Push Button](course/Day-02-Push-Button/README.md) | ✅ Complete |
-| Day 03 | LED Brightness (PWM) | ⏳ Coming Soon |
-| Day 04 | RGB LED | ⏳ Coming Soon |
-| Day 05 | Buzzer | ⏳ Coming Soon |
-| Day 06 | Serial Monitor | ⏳ Coming Soon |
-| Day 07 | Traffic Light Project | ⏳ Coming Soon |
-| Day 08 | Potentiometer | ⏳ Coming Soon |
-| Day 09 | Servo Motor | ⏳ Coming Soon |
-| Day 10 | LCD Display | ⏳ Coming Soon |
-| ... | ... | ... |
-| Day 30 | Final Arduino Project | ⏳ Coming Soon |
+|---|---|---|
+| Day 01 | [Blink LED](course/01-blink-led/README.md) | ✅ Complete |
+| Day 02 | [Button Controlled LED](course/02-button-controlled-led/README.md) | ✅ Complete |
+| Day 03 | [State Memory LED](course/03-state-memory-led/README.md) | ✅ Complete |
+| Day 04 | [LED Brightness Control](course/04-led-brightness-control/README.md) | ✅ Complete |
+| Day 05 | [RGB LED Color Mixing](course/05-rgb-led-color-mixing/README.md) | ✅ Complete |
+| Day 06 | [Traffic Light System](course/06-traffic-light-system/README.md) | ✅ Complete |
+| Day 07 | [Automatic Street Light](course/07-automatic-street-light/README.md) | ✅ Complete |
+| Day 08 | [Nokia Tune Using an Arduino](course/08-nokia-tune-using-an-arduino/README.md) | ✅ Complete |
+| Day 09 | [Distance Meter HC-SR04](course/09-distance-meter-hc-sr04/README.md) | ✅ Complete |
+| Day 10 | [Smart Parking Sensor](course/10-smart-parking-sensor/README.md) | ✅ Complete |
+| Day 11 | [Temperature Monitor DHT11](course/11-temperature-monitor-dht11/README.md) | ✅ Complete |
+| Day 12 | [Motion Detector PIR](course/12-motion-detector-pir/README.md) | ✅ Complete |
+| Day 13 | [LCD Display Basics](course/13-lcd-display-basics/README.md) | ✅ Complete |
+| Day 14 | [Digital Counter 7-Segment](course/14-digital-counter-7-segment/README.md) | ✅ Complete |
+| Day 15 | [Servo Motor Control](course/15-servo-motor-control/README.md) | ✅ Complete |
+| Day 16 | [Joystick Controlled Servo](course/16-joystick-controlled-servo/README.md) | ✅ Complete |
+| Day 17 | [Electronic Dice](course/17-electronic-dice/README.md) | ✅ Complete |
+| Day 18 | [OLED System Monitor](course/18-oled-system-monitor/README.md) | ✅ Complete |
+| Day 19 | [Automatic Plant Watering System](course/19-automatic-plant-watering-system/README.md) | ✅ Complete |
+| Day 20 | [Automatic Light Control LDR](course/20-automatic-light-control-ldr/README.md) | ✅ Complete |
+| Day 21 | [Temperature-Based Fan Control](course/21-temperature-based-fan-control/README.md) | ✅ Complete |
+| Day 22 | [Relay Control Project](course/22-relay-control-project/README.md) | ✅ Complete |
+| Day 23 | [Servo-Based Door Lock](course/23-servo-based-door-lock/README.md) | ✅ Complete |
+| Day 24 | [Automatic Gate System](course/24-automatic-gate-system/README.md) | ✅ Complete |
+| Day 25 | [Obstacle Avoiding Robot](course/25-obstacle-avoiding-robot/README.md) | ✅ Complete |
+| Day 26 | [Line Follower Robot](course/26-line-follower-robot/README.md) | ✅ Complete |
+| Day 27 | [Weather Station](course/27-weather-station/README.md) | ✅ Complete |
+| Day 28 | [Smart Home Automation](course/28-smart-home-automation/README.md) | ✅ Complete |
+| Day 29 | [Password Door Lock](course/29-password-door-lock/README.md) | ✅ Complete |
+| Day 30 | [Your Final Project Challenge](course/30-your-final-project-challenge/README.md) | ✅ Complete |
 
 ---
 
