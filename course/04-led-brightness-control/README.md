@@ -1,4 +1,4 @@
-# 💡 Day 04 – PWM LED Brightness
+# 💡 Day 04 – PWM LED Brightness Control
 
 Control LED brightness smoothly from OFF to full brightness and back. Create a realistic fading effect!
 
