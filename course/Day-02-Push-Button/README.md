@@ -1,3 +1,0 @@
-# Day 02 - Push Button
-
-Coming Soon...
